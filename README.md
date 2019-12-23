@@ -5,6 +5,8 @@ The shop system changed the timezone of the sales date.
 Prior to version 1.0.17+60 it was Europe/Berlin.
 Afterwards it is UTC. Here I presume the standard timezone is UTC and changed the sale date according to that timezone considering the condition of version comapre.
 
+![alt text](https://github.com/sourcecde/rexx_challenge/blob/master/Screenshot_2019-12-23_15-58-33.png)
+
 ## Prerequisites
 
 - PHP 7.2
