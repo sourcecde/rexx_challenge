@@ -171,6 +171,9 @@ div[slider] > input[type=range]::-ms-tooltip {
                           @endforeach
                       @endif
                     </select>
+                </div><br><br>
+                <div class="col-md-4">
+                    <label>Price</label>
                 </div>
                 <div slider id="slider-distance">
                   <div>
@@ -186,7 +189,7 @@ div[slider] > input[type=range]::-ms-tooltip {
                       <span id="value">100</span>
                     </div>
                   </div>
-                  <input type="range" name="price_min" id="price_min" value="0" max="100" min="0" step="1" oninput="
+                  <input type="range" name="price_min" id="price_min" value="1" max="100" min="1" step="1" oninput="
                   this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
                   let value = (this.value/parseInt(this.max))*100
                   var children = this.parentNode.childNodes[1].childNodes;
@@ -195,7 +198,7 @@ div[slider] > input[type=range]::-ms-tooltip {
                   children[7].style.left=value+'%';children[11].style.left=value+'%';
                   children[11].childNodes[1].innerHTML=this.value;" />
 
-                  <input type="range" name="price_max" id="price_max" value="100" max="100" min="0" step="1" oninput="
+                  <input type="range" name="price_max" id="price_max" value="100" max="100" min="1" step="1" oninput="
                   this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
                   let value = (this.value/parseInt(this.max))*100
                   var children = this.parentNode.childNodes[1].childNodes;
