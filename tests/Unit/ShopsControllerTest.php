@@ -2,46 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\DateRangeController;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
-class ShopsController extends Controller
+class ShopsControllerTest extends TestCase
 {
-    function index(Request $request)
+    protected $shopsController;
+
+    protected function setUp(): void
     {
-
-    // Product Listing For Dropdown Menu //
-
-    $productView = DB::table('shops')
-    					->groupBy('product_name')
-    					->get();
-
-    // Declare Variable and assign value //
+        $this->shopsController = new ShopsController();
+    }
     
-    $customer_name = $request->customer_name;
-    $product_id = $request->product_id;
-    $price_min = $request->price_min;
-    $price_max = $request->price_max;
+    protected function tearDown(): void
+    {
+        $this->shopsController = NULL;
+    }
 
-    // Filter Search for the Main Output in Datatable //
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
 
-     if(request()->ajax())
-     {
-     $data = DB::table('shops')
-				->where(function($query) use ($customer_name,$product_id,$price_min,$price_max) {
-					if($customer_name)
-						$query->where('customer_name', 'like', '%' . $customer_name . '%');
+    public function testTimezoneconvertTest()
+    {
+        $givenDate = '2019-12-21 18:46:32';
+        $expectedDate = '2019-12-21 19:46:32';
 
-					if($product_id)
-						$query->where('product_id', $product_id);
-
-					if($price_min)
-						$query->whereBetween('product_price', [$price_min, $price_max]);
-				})
-				->get();
-
-      return datatables()->of($data)->make(true);
-     }
-     return view('shops')->with('product', $productView);
+        $this->assertEquals($expectedDate, $this->shopsController->timeConverter($givenDate));
     }
 }
