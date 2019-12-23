@@ -25,6 +25,19 @@ class ShopsController extends Controller
         return $result;
     }
 
+    // Function to comapre version and to calculate sale date according to timezone. We presume standard timezone is UTC.
+    
+    function versionCompare($version, $sale_date)
+    {
+        if (version_compare($version, '1.0.17+60', '<')) {
+                            return $this->timeConverter($sale_date);
+                            
+                        }
+                        else{
+                            return $sale_date;
+                        }
+    }
+
     function index(Request $request)
     {
 
@@ -62,13 +75,8 @@ class ShopsController extends Controller
                         ->addColumn('sale_date', function($data){
                         $version = $data->version;
                         $sale_date = $data->sale_date;
-                        if (version_compare($version, '1.0.17+60', '<')) {
-                            return $this->timeConverter($sale_date);
-                            
-                        }
-                        else{
-                            return $sale_date;
-                        }
+                        return $this->versionCompare($version, 
+                                                    $sale_date);
                             })
                         ->make(true);
      }
