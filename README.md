@@ -20,13 +20,15 @@ Afterwards it is UTC. Here I presume the standard timezone is UTC and changed th
 
 ## Installation
 
+- Clone git from the Repository (git clone https://github.com/sourcecde/rexx_challenge.git
+)
 - composer update
 - Rename .env.example to .env and provide your database details there.
 - Create Database and put Databse name in .env file (DB_DATABASE)
 - Database username in 'root' (DB_USERNAME)
 - Change DB Password in .env file (If any), otherwise leave blank(DB_PASSWORD)
 - php artisan migrate
-- php artisan db:seed (if not work) use: php artisan db:seed --class=ShopsTableDataSeeder
+- php artisan db:seed --class=ShopsTableDataSeeder
 - php artisan key:generate
 - php artisan serve
 - RUN http://127.0.0.1:8000/shops in your browser
