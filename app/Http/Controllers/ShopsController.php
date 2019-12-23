@@ -59,18 +59,18 @@ class ShopsController extends Controller
 				->get();
 
       return datatables()->of($data)
-                            ->addColumn('Sale Date', function($data){
-                            $version = $data->version;
-                            $sale_date = $data->sale_date;
-                            if (version_compare($version, '1.0.17+60', '<')) {
-                                return $this->timeConverter($sale_date)."(Europe/Berlin)";
-                                
-                            }
-                            else{
-                                return $sale_date."(UTC)";
-                            }
-                                })
-                            ->make(true);
+                        ->addColumn('sale_date', function($data){
+                        $version = $data->version;
+                        $sale_date = $data->sale_date;
+                        if (version_compare($version, '1.0.17+60', '<')) {
+                            return $this->timeConverter($sale_date);
+                            
+                        }
+                        else{
+                            return $sale_date;
+                        }
+                            })
+                        ->make(true);
      }
      return view('shops')->with('product', $productView);
     }

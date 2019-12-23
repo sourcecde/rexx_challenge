@@ -218,12 +218,13 @@ div[slider] > input[type=range]::-ms-tooltip {
                 <th>Customer Name</th>
                 <th>Product Name</th>
                 <th>Product Price</th>
-                <th>Sale Date (Timezone)</th>
+                <th>Sale Date</th>
             </tr>
            </thead>
            <tfoot>
             <tr>
-                <th colspan="4" style="text-align:right">Total:</th>
+                <th colspan="3" style="text-align:right">Total:</th>
+                <th></th>
                 <th></th>
             </tr>
           </tfoot>
@@ -266,7 +267,7 @@ $(document).ready(function(){
     },
     {
     data: 'sale_date',
-    name: 'timezone'
+    name: 'sale_date'
     }
    ],
    "footerCallback": function ( row, data, start, end, display ) {
@@ -298,7 +299,7 @@ $(document).ready(function(){
  
             // Update footer
             $( api.column( 3 ).footer() ).html(
-                pageTotal
+                Math.round(pageTotal * 100) / 100 // (round at most 2 decimal places, but only if necessary)
             );
         }
   });
@@ -315,10 +316,6 @@ $(document).ready(function(){
    load_data(customer_name,product_id,
                             price_min,price_max);
   }
-  // else
-  // {
-  //  alert('Data is required');
-  // }
  });
 
  $('#refresh').click(function(){
