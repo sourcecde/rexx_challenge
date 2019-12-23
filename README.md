@@ -7,7 +7,7 @@ Afterwards it is UTC. Here I presume the standard timezone is UTC and changed th
 
 ## Read the json data and save it to the database using php
 
-Check the below mentioned file for this:
+Check this file for code:
 database/seeds/ShopsTableDataSeeder.php
 
 ![alt text](https://github.com/sourcecde/rexx_challenge/blob/master/Screenshot_2019-12-23_15-58-33.png)
