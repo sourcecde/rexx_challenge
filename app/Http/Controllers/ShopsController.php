@@ -4,9 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use DateTime;
+use DateInterval;
+use DateTimeZone;
 
 class ShopsController extends Controller
 {
+
+    // Function to convert timezone from UTC to Europe/Berlin
+
+    function timeConverter($sale_date)
+    {
+        $userTimezone = new \DateTimeZone('Europe/Berlin');
+        $gmtTimezone = new \DateTimeZone('UTC');
+        $myDateTime = new \DateTime($sale_date, $gmtTimezone);
+        $offset = $userTimezone->getOffset($myDateTime);
+        $myInterval=DateInterval::createFromDateString((string)$offset . 'seconds');
+        $myDateTime->add($myInterval);
+        $result = $myDateTime->format('Y-m-d H:i:s');
+        return $result;
+    }
+
     function index(Request $request)
     {
 
@@ -40,7 +58,19 @@ class ShopsController extends Controller
 				})
 				->get();
 
-      return datatables()->of($data)->make(true);
+      return datatables()->of($data)
+                            ->addColumn('Sale Date', function($data){
+                            $version = $data->version;
+                            $sale_date = $data->sale_date;
+                            if (version_compare($version, '1.0.17+60', '<')) {
+                                return $this->timeConverter($sale_date)."(Europe/Berlin)";
+                                
+                            }
+                            else{
+                                return $sale_date."(UTC)";
+                            }
+                                })
+                            ->make(true);
      }
      return view('shops')->with('product', $productView);
     }

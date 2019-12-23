@@ -218,7 +218,7 @@ div[slider] > input[type=range]::-ms-tooltip {
                 <th>Customer Name</th>
                 <th>Product Name</th>
                 <th>Product Price</th>
-                <th>Sale Date</th>
+                <th>Sale Date (Timezone)</th>
             </tr>
            </thead>
            <tfoot>
@@ -265,8 +265,8 @@ $(document).ready(function(){
      name:'product_price'
     },
     {
-     data:'sale_date',
-     name:'sale_date'
+    data: 'sale_date',
+    name: 'timezone'
     }
    ],
    "footerCallback": function ( row, data, start, end, display ) {
