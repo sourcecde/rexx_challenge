@@ -36,4 +36,3 @@ Afterwards it is UTC. Here I presume the standard timezone is UTC and changed th
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> initial commit
