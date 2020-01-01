@@ -37,7 +37,7 @@ database/seeds/ShopsTableDataSeeder.php
 - Database username in 'root' (DB_USERNAME)
 - Change DB Password in .env file (If any), otherwise leave blank(DB_PASSWORD)
 - php artisan migrate
-- php artisan db:seed --class=ShopsTableDataSeeder (This command will Read the json data and save it to the database using php)
+- php artisan db:seed (This command will Read the json data and save it to the database using php)
 - php artisan key:generate
 - php artisan serve
 - RUN http://127.0.0.1:8000/shops in your browser
