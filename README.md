@@ -48,14 +48,13 @@ $ php artisan serve
 $ vendor/bin/phpunit
 ```
 
-
 PHPUnit 8.5.0 by Sebastian Bergmann and contributors.
 
-Time: 174 ms, Memory: 14.00 MB
+Time: 57 ms, Memory: 6.00 MB
 
 OK (2 tests, 2 assertions)
 
-ShopsControllerTest.php is the file to test function (/tests/Unit/). 
+ShopsControllerTest.php is the file to test function.Function name are mentioned in below: 
 
 - testTimezoneconvert
 - testVerionCompareToCalculateSaleDate
