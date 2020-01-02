@@ -53,7 +53,12 @@ PHPUnit 8.5.0 by Sebastian Bergmann and contributors.
 
 Time: 174 ms, Memory: 14.00 MB
 
-OK (3 tests, 3 assertions)
+OK (2 tests, 2 assertions)
+
+ShopsControllerTest.php is the file to test function (/tests/Unit/). 
+
+- testTimezoneconvert
+- testVerionCompareToCalculateSaleDate
 
 
 ## License
