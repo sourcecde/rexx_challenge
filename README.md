@@ -22,10 +22,6 @@ database/seeds/ShopsTableDataSeeder.php
 - yajra datatables 9.8
 - Laravel 6.2
 
-## Testing
-
-- phpunit 8.5.0
-- vendor\bin\phpunit
 
 ## Installation
 
@@ -36,11 +32,29 @@ database/seeds/ShopsTableDataSeeder.php
 - Create Database and put Databse name in .env file (DB_DATABASE)
 - Database username in 'root' (DB_USERNAME)
 - Change DB Password in .env file (If any), otherwise leave blank(DB_PASSWORD)
-- php artisan migrate
-- php artisan db:seed (This command will Read the json data and save it to the database using php)
-- php artisan key:generate
-- php artisan serve
+```
+$ php artisan migrate
+$ php artisan db:seed (This command will Read the json data and save it to the database using php)
+$ php artisan key:generate
+$ php artisan serve
+```
 - RUN http://127.0.0.1:8000/shops in your browser
+
+## Testing
+
+- phpunit 8.5.0
+
+```
+$ vendor/bin/phpunit
+```
+
+
+PHPUnit 8.5.0 by Sebastian Bergmann and contributors.
+
+Time: 174 ms, Memory: 14.00 MB
+
+OK (3 tests, 3 assertions)
+
 
 ## License
 
